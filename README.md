@@ -1,8 +1,23 @@
-# cPanel Email Accounts CSV Exporter
+## Run with variables populated
 
-This Python script connects to the cPanel UAPI and exports all email accounts from a cPanel account to a CSV file.
+You can run the script in two ways:
 
-It uses this cPanel endpoint:
+1. By setting environment variables before running the script.
+2. By editing the Python file and hardcoding the variables directly.
 
-```text
-https://CPANEL_HOST:2083/execute/Email/list_pops_with_disk
+The safer option is to use environment variables.
+
+---
+
+## Option 1: Run with environment variables
+
+### Windows PowerShell
+
+```powershell
+$env:CPANEL_HOST="abc.com"
+$env:CPANEL_PORT="2083"
+$env:CPANEL_USERNAME="your_cpanel_username"
+$env:CPANEL_TOKEN="your_api_token"
+$env:OUTPUT_CSV="cpanel_email_accounts.csv"
+
+python export_cpanel_emails.py
